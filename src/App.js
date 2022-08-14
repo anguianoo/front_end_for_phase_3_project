@@ -1,23 +1,25 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import { Routes, Route } from "react-router-dom";
+import DisplaySkaters from "./components/DisplaySkaters";
+import Home from "./components/Home";
+import Header from "./components/Header";
+import DisplaySkateboards from "./components/DisplaySkateboards";
+import { Container } from "@mui/system";
+import Skater from "./components/Skater";
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      {/* <header className="App-header">Skaters</header> */}
+      <Container maxWidth="sm">
+        <Header />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/skaters" element={<DisplaySkaters />} />
+          <Route path="/skateboards" element={<DisplaySkateboards />} />
+          <Route path="/skaters/:id" element={<Skater />} />
+        </Routes>
+      </Container>
     </div>
   );
 }
